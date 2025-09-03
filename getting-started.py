@@ -37,3 +37,13 @@ print(f"Shape of tensor: {tensor.shape}")
 print(f"Datatype of tensor: {tensor.dtype}")
 print(f"Device tensor is stored on: {tensor.device}")
 
+# Operations on Tensors
+print("------------Tensor Opperations-------------")
+if torch.accelerator.is_available():
+    tensor = tensor.to(torch.accelerator.current_accelerator())
+    tensor = torch.ones(4, 4)
+    print(f"First Row: {tensor[0]}")
+    print(f"First column: {tensor[:, 0]}")
+    print(f"Last Column: {tensor[..., -1]}")
+    tensor[:,1] = 0
+    print(tensor)
