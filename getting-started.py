@@ -47,3 +47,26 @@ if torch.accelerator.is_available():
     print(f"Last Column: {tensor[..., -1]}")
     tensor[:,1] = 0
     print(tensor)
+
+# Joining tensors
+# Torch.cat
+t1 = torch.cat([tensor, tensor, tensor], dim=1)
+print(t1)
+
+# Arithmetic operations
+# Matrix multiplication between two tensors
+# ``tensor.T`` returns the transpose of a tensor
+
+y1 = tensor @ tensor.T
+y2 = tensor.matmul(tensor.T)
+
+y3 = torch.rand_like(y1)
+torch.matmul(tensor, tensor.T, out=y3)
+
+# Computes the element-wise produce. z1, z2, z3 will have the same value
+z1 = tensor * tensor
+z2 = tensor.mul(tensor)
+
+z3 = tensor.torch.rand_like(tensor)
+torch.mul(tensor, tensor, out=z3)
+
