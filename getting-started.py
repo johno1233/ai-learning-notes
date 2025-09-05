@@ -67,6 +67,27 @@ torch.matmul(tensor, tensor.T, out=y3)
 z1 = tensor * tensor
 z2 = tensor.mul(tensor)
 
-z3 = tensor.torch.rand_like(tensor)
+z3 = torch.rand_like(tensor)
 torch.mul(tensor, tensor, out=z3)
+
+# Single-element tensors can be agregated and converted into a python numerical value with item()
+agg = tensor.sum()
+agg_item = agg.item()
+print(agg_item, type(agg_item))
+
+
+# In-place operations - store the result to the operand denoted by `_`
+# NOTE: in place operations save some memory but also come with an immediate loss of history, their use is not recommended
+print(f"{tensor} \n")
+tensor.add_(5)
+print(tensor)
+
+# Bridge with NumPy
+# Tensor to numpy array
+t = torch.ones(5)
+print(f"t: {t}")
+n = t.numpy()
+print(f"n: {n}")
+
+
 
