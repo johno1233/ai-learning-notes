@@ -89,5 +89,11 @@ print(f"t: {t}")
 n = t.numpy()
 print(f"n: {n}")
 
-
+# Numpy array to tensor
+n = np.ones(5)
+t = torch.from_numpy(n)
+# Changes in the array reflect in the tensor
+np.add(n, 1, out=n)
+print(f"t: {t}")
+print(f"n: {n}")
 
