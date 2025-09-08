@@ -49,4 +49,6 @@ for i in range(1, cols * rows + 1):
     plt.title(labels_map[label])
     plt.axis("off")
     plt.imshow(img.squeeze(), cmap="gray")
-plt.show()
+# plt.show() # Can't show since we're in wsl with no GUI
+
+
